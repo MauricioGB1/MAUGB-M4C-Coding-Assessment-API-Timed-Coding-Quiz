@@ -60,10 +60,10 @@ var highScores = document.getElementById("high-scores");
 var timer = document.getElementById("timer");
 var stimer = document.getElementById("stimer");
 var mainPage = document.getElementById("main-page");
-var startQuiz = document.getElementById("t=start-quiz");
+var startQuiz2 = document.getElementById("start-quiz");
 var questionsGroup = document.getElementById("questions-group");
 var question = document.getElementById("question");
-var answer = document.getElementById("answer");
+var answerButton = document.getElementById("answer-button1");
 var finishedQuestions = document.getElementById("finished-questions");
 var score = document.getElementById("score");
 var inputForm = document.getElementById("input-form");
@@ -74,48 +74,106 @@ var clearScores = document.getElementById("clear-scores");
 var correct = document.getElementById("correct");
 var incorrect = document.getElementById("incorrect");
 
-var timerEl= document.querySelector("#timer");
+var startQuiz = document.querySelector("#start-quiz");
+
+
+
+var timerVisual= document.querySelector("#timer");
 var score = 0;
 var timeLeft;
-var finished;
+var finished
+timerVisual.innerText = 0;
 var highScores = [];
+var questionIndex;
 
 
+
+var setTime = function () {
+    timeLeft = 3;
+
+var timeInterval = setInterval(function () {
+    timerVisual.innerText = timeLeft;
+    timeLeft--
+
+    if (finished) {
+        clearInterval(timeInterval)
+    }
+    else if (timeLeft < 0) {
+        clearInterval(timeInterval)
+        showScore()
+        timerVisual.innerText = 0
+        
+    }
+    }, 1000)
+}
+
+// Start Quiz  alert ("hola");
 var startTest = function() {
-    mainPage.classList.add('hide');
-    mainPage.classList.remove('show');
-    questionsGroup.classList.add ('show');
-    questionsGroup.classList.remove('hide');
+    mainPage.classList.add("hide");
+    mainPage.classList.remove("show");
+    questionsGroup.classList.add ("show");
+    questionsGroup.classList.remove("hide");
+    inputForm.classList.add ("hide")
+    questionsRandom = testQuestions.sort(() => Math.random() - 0.5);
+    setTime()
+    setQuestion()
 }
 
-var startQuestion = function () {
+var setQuestion = function() {
     resetAnswers()
-    
+    displayQuestion(questionsRandom[questionIndex])
+}
+
+var resetAnswers = function () {
+    while (answerbuttonsEi.firstChild) {
+    answerbuttonsEi.removechild(answerbuttonsEi.firstChild)
+    };
+};
+
+var displayQuestion = function(index) {
+    question.innerText = index.Question
+    for (var i = 0; i< index.choices.length; i++); {
+    var selectAnswer = document.createElement('button1')
+    selectAnswer.innerText = index.choices[i].choice
+    selectAnswer.classList.add('button-answer')
+    selectAnswer.classList.add('button-select')
+    selectAnswer.addEventListener("click", answerCheck)
+    answerButton.appendChild(answerbutton)
+    }
+};
+
+var answerCorrect = function() {
+    if (correctEl.className = "hide") {
+        correctEl.classlist.remove("hide")
+        correctEl.classlist.add("banner")
+        wrongEl.classList.remove("banner")
+        wrongEl.classList.add("hide")
+    }
+}
+var answerWrong = function() {
+    if (wrongEl.className = "hide") {
+        wrongEl.classlist.remove("hide")
+        wrongEl.classlist.add("banner")
+        correctEl.classList.remove("banner")
+        correctEl.classList.add("hide")
+    }
 }
 
 
+        //Display total score screen at end of game
+        var showScore = function () {
+            containerQuestionEl.classList.add("hide");
+            containerEndEl.classList.remove("hide");
+            containerEndEl.classList.add("show");
+        }    
 
-// Access toggle switch HTML element
-var themeSwitcher = document.querySelector("#theme-switcher");
-var container = document.querySelector(".container");
 
-// Set default mode to dark
-var mode = "dark";
 
-// Listen for a click event on toggle switch
-themeSwitcher.addEventListener("click", function() {
-  // If mode is dark, apply light background
-  if (mode === "dark") {
-    mode = "light";
-    container.setAttribute("class", "light");
-  }
-  // If mode is light, apply dark background 
-  else {
-    mode = "dark";
-    container.setAttribute("class", "dark");
-  }
-});
+startQuiz.addEventListener("click", startTest);
 
+
+
+/*
 
 var viewScore = document.createElement("p");
 viewScore.classList.add("banner", "view-score");
@@ -128,32 +186,8 @@ header.appendChild(time);
 var finished
 timerEl.innerText = 0;
 
-var setTime = function () {
-    timeLeft = 50;
 
-var timerInterval = setInterval(function() {
-    timerEl.innerText = timeLeft;
-    timeleft--
-
-    if (finished) {
-        clearInterval(timerInterval)
-    }
-   
-    if (timeLeft < 0) {
-        showScore()
-        timerEl.innerText = 0
-        clearInterval(timerInterval)
-    }
-
-    }, 1000)
-}
-
-
-
-
-
-
-
+*/
 
 
 /*
