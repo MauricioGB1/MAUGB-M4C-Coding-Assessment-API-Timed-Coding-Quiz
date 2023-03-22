@@ -10,8 +10,8 @@
 
 <body>
     <header>
-        <h2 id="high-scores">View high scores</h2>
-        <h2 id="stimer"> Time: <span id="timer"></span></h2>
+        <h3 id="display-hscores">View high scores</h2>
+        <h3 id="stimer"> Time: <span id="timer"></span></h2>
     </header>
 
     <section  class="show" id="main-page">
@@ -20,48 +20,55 @@
              <p> Try to answer the following code-related questions within the time limit</p>
              <p> Keep in mind that incorrect answers will penalize your score/time</p>
              <p> by  Ten seconds!</p>
-             <button id="start-quiz" class="button1"> Start Quiz</button>
+             <button class="button1" id="start-quiz" > Start Quiz</button>
         </div>
     </section>
 
     <section  id="questions-group" class="hide">
+        <div class="container-questions"></div>
         <div id="question"> </div>
         <div id="answer-button1" class="button-answer"></div>
     </section>
 
     <section  id="finished-questions" class="hide">
-        <div id="question"> </div>
-        <div id="score"></div>
-        <h1> Quiz Completed</h1>
-    </section>
-
-    <section id="input-form" class="hide" >
-        <form  class="participant-name">
-            <p> Enter your name:
-            <input type="text" name="name" id="form" class="record"/>
-            <button id="submit" class="finish" type="submit">submit</button>
-            </p>
-        </form>
-    </section>
-
-    
-        <div id="high-scores" class="hide" >
-            <h1>High Scores</h1>
-            <div>
-                <button class="button1"  id="go-back"> Go back</button>
-                <button class="button1"  id="clear-scores"> Clear high scores</button>
+        <div id="question">
+            <div id="score-banner">
+            <h1 id="qz"> Quiz Completed</h1>
             </div>
+            <form id="input-form" class="form" >
+                <p> Enter your name:
+                    <input type="text" name="form" id="form" class="record"/>
+                    <button id="submit" class="buttonB" type="submit">submit</button>
+                </p>
+            </form>
+        </div>
     </section>
+
 
     <section>
-        <div   id="correct" class="hide">
+        <div  class="hide" id="correct" >
             <h2>Correct!</h2>
         </div>
 
-        <div   id="incorrect" class="hide">
+        <div class="hide"  id="incorrect" >
             <h2>Incorrect!</h2>
         </div>
     </section>
+
+
+
+    
+        <div id="high-scores" class="hide" >
+            <div class="high-scores"></div>
+            <h1>High Scores</h1>
+            <ol id="highscoreL" class="score-list"></ol>
+            <div>
+                <button class="buttonA"  id="go-back"> Go back</button>
+                <button class="buttonA"  id="clear-scores"> Clear high scores</button>
+            </div>
+    </section>
+
+
 
     <script src= "./assets/js/main.js"></script>
 </body>
