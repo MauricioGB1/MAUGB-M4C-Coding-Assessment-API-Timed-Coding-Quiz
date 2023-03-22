@@ -50,6 +50,9 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ![alt text](assets/images/screenshot.png)
 
+![alt text](./assets/images/start-quiz.png)
+
+
 ## Credits
 
 Special Thank you to the support team from RICE University Coding Bootcamp.
