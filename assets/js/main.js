@@ -155,7 +155,7 @@ var resetAnswers = function () {
 // Function to check answer vs solution
 var testQuestion = function(index) {
     question.innerText = index.listQuestion
-    for (var i = 0; i < index.choices.length; i++) {
+    for (var i = 0; i < index.choices.length ; i++) {
     var selectAnswer = document.createElement('button')
     selectAnswer.innerText = index.choices[i].choice
     selectAnswer.classList.add('button-answer')
